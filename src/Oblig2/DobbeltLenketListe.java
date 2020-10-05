@@ -48,10 +48,9 @@ public class DobbeltLenketListe<T> implements Liste<T>
         endringer = 0;
     }
 
-    // konstruktør
+    // Oppgave 2
     public DobbeltLenketListe(T[] a)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
     }
 
     // subliste
