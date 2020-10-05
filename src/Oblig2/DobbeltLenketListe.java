@@ -167,10 +167,26 @@ public class DobbeltLenketListe<T> implements Liste<T>
 
         return sb.toString();
     }
-
+// oppgave 2
     public String omvendtString()
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        StringBuilder sb = new StringBuilder();
+        if (antall == 0) {
+            return "[]";
+        }
+
+        Node<T> temp;
+        temp = hode;
+        sb.append("[").append(temp.verdi);
+
+        for (int i = 0; i < antall - 1; i++) {
+            temp = temp.neste;
+            sb.append(", ").append(temp.verdi);
+        }
+
+        sb.append("]");
+
+        return sb.toString();
     }
 
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c)
