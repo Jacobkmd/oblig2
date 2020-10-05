@@ -51,7 +51,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
     // Oppgave 1
     public DobbeltLenketListe(T[] a)
     {
-        Objects.requireNonNull(a, "Tabellen a er null!");
+        Objects.requireNonNull(a, "Tabell a er null!");
 
         for (T i : a) {
             if (i == null) {
@@ -149,7 +149,23 @@ public class DobbeltLenketListe<T> implements Liste<T>
     @Override
     public String toString()
     {
-        
+        StringBuilder sb = new StringBuilder();
+        if (antall == 0) {
+            return "[]";
+        }
+
+        Node<T> temp;
+        temp = hode;
+        sb.append("[").append(temp.verdi);
+
+        for (int i = 0; i < antall - 1; i++) {
+            temp = temp.neste;
+            sb.append(", ").append(temp.verdi);
+        }
+
+        sb.append("]");
+
+        return sb.toString();
     }
 
     public String omvendtString()
