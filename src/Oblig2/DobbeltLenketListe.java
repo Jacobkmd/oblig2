@@ -48,9 +48,27 @@ public class DobbeltLenketListe<T> implements Liste<T>
         endringer = 0;
     }
 
-    // Oppgave 2
+    // Oppgave 1
     public DobbeltLenketListe(T[] a)
     {
+        Objects.requireNonNull(a, "Tabellen a er null!");
+
+        for (T i : a) {
+            if (i == null) {
+                continue;
+            }
+
+            if (antall == 0) {
+                hale = new Node<>(i, null, null);
+                hode = hale;
+            }
+            else {
+                hale.neste = new Node<>(i, hale, null);
+                hale = hale.neste;
+            }
+            antall++;
+        }
+
     }
 
     // subliste
@@ -68,10 +86,10 @@ public class DobbeltLenketListe<T> implements Liste<T>
     @Override
     public boolean tom()
     {
-        if (antall == 0 && hode == null && hale == null) {
-
-        }
+        if (antall == 0) {
             return true;
+        }
+            return false;
     }
 
     @Override
