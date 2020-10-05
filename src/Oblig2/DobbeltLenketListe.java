@@ -145,11 +145,11 @@ public class DobbeltLenketListe<T> implements Liste<T>
     {
         throw new UnsupportedOperationException("Ikke laget ennå!");
     }
-
+//Oppgave 2
     @Override
     public String toString()
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        
     }
 
     public String omvendtString()
