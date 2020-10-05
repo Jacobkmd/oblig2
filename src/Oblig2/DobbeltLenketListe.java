@@ -168,19 +168,18 @@ public class DobbeltLenketListe<T> implements Liste<T>
         return sb.toString();
     }
 // oppgave 2
-    public String omvendtString()
-    {
+    public String omvendtString() {
         StringBuilder sb = new StringBuilder();
         if (antall == 0) {
             return "[]";
         }
 
         Node<T> temp;
-        temp = hode;
+        temp = hale;
         sb.append("[").append(temp.verdi);
 
-        for (int i = 0; i < antall - 1; i++) {
-            temp = temp.neste;
+        for (int i = antall - 1; i > 0; i--) {
+            temp = temp.forrige;
             sb.append(", ").append(temp.verdi);
         }
 
