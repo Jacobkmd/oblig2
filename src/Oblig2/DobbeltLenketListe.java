@@ -34,10 +34,10 @@ public class DobbeltLenketListe<T> implements Liste<T>
     private int antall;            // antall noder i listen
     private int endringer;   // antall endringer i listen
 
-    // hjelpemetode
+    // Oppgave 3
     private Node<T> finnNode(int indeks)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+
     }
 
     // konstruktør
