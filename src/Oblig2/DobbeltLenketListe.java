@@ -1,5 +1,6 @@
 package Oblig2;
 
+import javax.swing.*;
 import java.util.Comparator;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
@@ -37,7 +38,27 @@ public class DobbeltLenketListe<T> implements Liste<T>
     // Oppgave 3
     private Node<T> finnNode(int indeks)
     {
+        Node<T> temp;
 
+        if (indeks < antall/2) {
+            temp = hode;
+            for (int i = 0; i <= antall/2; i++){
+                if (i == indeks) {
+                    return temp;
+                }
+                temp = temp.neste;
+            }
+        }
+        else {
+            temp = hale;
+            for (int i = antall - 1; i >= antall/2; i --) {
+                if (i == i) {
+                    return temp;
+                }
+                temp = temp.forrige;
+            }
+        }
+        return temp;
     }
 
     // konstruktør
@@ -121,11 +142,12 @@ public class DobbeltLenketListe<T> implements Liste<T>
     {
         throw new UnsupportedOperationException("Ikke laget ennå!");
     }
-
+// oppgave 3
     @Override
     public T hent(int indeks)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        indeksKontroll(indeks, false); //Sjekker indeks
+        return finnNode(indeks).verdi;         // Bruker finnNode og returnerer verdien til indeksen.
     }
 
     @Override
@@ -133,11 +155,22 @@ public class DobbeltLenketListe<T> implements Liste<T>
     {
         throw new UnsupportedOperationException("Ikke laget ennå!");
     }
-
+// oppgave 3
     @Override
     public T oppdater(int indeks, T nyverdi)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        indeksKontroll(indeks, false); // Her sjekkes indeksen.
+        T gammelVerdi;
+        if(nyverdi != null) {
+            gammelVerdi = finnNode(indeks).verdi;
+            finnNode(indeks).verdi = nyverdi;
+            endringer++;
+
+        }
+        else {
+            throw new NullPointerException(" Kan ikke være null!");
+        }
+        return gammelVerdi;
     }
 
     @Override
