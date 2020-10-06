@@ -92,10 +92,11 @@ public class DobbeltLenketListe<T> implements Liste<T>
             return false;
     }
 
+    // Oppgave 2B
     @Override
     public boolean leggInn(T verdi)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        
     }
 
     @Override
@@ -145,7 +146,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
     {
         throw new UnsupportedOperationException("Ikke laget ennå!");
     }
-//Oppgave 2
+//Oppgave 2A
     @Override
     public String toString()
     {
