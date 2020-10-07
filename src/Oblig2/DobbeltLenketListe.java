@@ -92,7 +92,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
 
     }
 
-    // subliste
+    // Oppgave 3B
     public Liste<T> subliste(int fra, int til)
     {
         throw new UnsupportedOperationException("Ikke laget ennå!");
