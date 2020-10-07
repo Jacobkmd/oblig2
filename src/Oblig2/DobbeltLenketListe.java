@@ -154,11 +154,11 @@ public class DobbeltLenketListe<T> implements Liste<T>
         antall++;
         return true;
     }
-
+// oppgave 5
     @Override
     public void leggInn(int indeks, T verdi)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        
     }
 // oppgave 4
     @Override
