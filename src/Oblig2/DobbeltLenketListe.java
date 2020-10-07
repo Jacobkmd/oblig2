@@ -173,11 +173,11 @@ public class DobbeltLenketListe<T> implements Liste<T>
         indeksKontroll(indeks, false); //Sjekker indeks
         return finnNode(indeks).verdi;         // Bruker finnNode og returnerer verdien til indeksen.
     }
-
+// oppgave 4
     @Override
     public int indeksTil(T verdi)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        
     }
 // oppgave 3
     @Override
