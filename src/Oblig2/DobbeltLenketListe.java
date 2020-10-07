@@ -160,11 +160,19 @@ public class DobbeltLenketListe<T> implements Liste<T>
     {
         throw new UnsupportedOperationException("Ikke laget ennå!");
     }
-
+// oppgave 4
     @Override
     public boolean inneholder(T verdi)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        int temp;
+        temp = indeksTil(verdi);
+
+        if (temp >= 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 // oppgave 3
     @Override
@@ -177,7 +185,19 @@ public class DobbeltLenketListe<T> implements Liste<T>
     @Override
     public int indeksTil(T verdi)
     {
-        
+        T temp;
+
+        if (verdi== null){
+            return -1;
+        }
+
+        for (int i = 0; i < antall; i++) {
+            temp = hent(i);
+            if (temp == verdi){
+                return i;
+            }
+        }
+        return -1;
     }
 // oppgave 3
     @Override
