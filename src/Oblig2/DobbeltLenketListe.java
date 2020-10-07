@@ -52,7 +52,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
         else {
             temp = hale;
             for (int i = antall - 1; i >= antall/2; i --) {
-                if (i == i) {
+                if (i == indeks) {
                     return temp;
                 }
                 temp = temp.forrige;
