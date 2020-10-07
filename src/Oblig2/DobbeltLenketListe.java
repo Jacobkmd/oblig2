@@ -103,7 +103,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
             throw new IndexOutOfBoundsException
                     ("til(" + til + ") > antall(" + antall + ")");
 
-        if (fra > til)                               
+        if (fra > til)
             throw new IllegalArgumentException
                     ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
     }
@@ -112,7 +112,14 @@ public class DobbeltLenketListe<T> implements Liste<T>
     // Oppgave 3B
     public Liste<T> subliste(int fra, int til)
     {
+        fratilKontroll(antall, fra, til);
 
+        Liste<T> subListe = new DobbeltLenketListe<>();
+
+        for (int i = fra; i < til; i++) {
+            subListe.leggInn(finnNode(i).verdi);
+        }
+        return subListe;
     }
 
     @Override
