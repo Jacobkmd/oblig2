@@ -252,12 +252,17 @@ public class DobbeltLenketListe<T> implements Liste<T>
         return gammelVerdi;
     }
 
+
+    
+// Oppgave 5
     @Override
     public boolean fjern(T verdi)
     {
         throw new UnsupportedOperationException("Ikke laget ennå!");
     }
 
+
+// Oppgave 5
     @Override
     public T fjern(int indeks)
     {
