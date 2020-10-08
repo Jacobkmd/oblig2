@@ -301,7 +301,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
                   temp.neste = høyrePeker;
                   høyrePeker.forrige = temp;
                   endringer++;
-                  antall++;
+                  antall--;
                   return true;
               }
 
@@ -327,7 +327,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
         if (indeks < 0) {
             throw new  IndexOutOfBoundsException("Indeksen er for lav!");
         }
-        
+
         if (indeks == 0) {
             verdi = hode.verdi;
             temp = hode;
