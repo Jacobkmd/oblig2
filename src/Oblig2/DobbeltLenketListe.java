@@ -1,5 +1,7 @@
 package Oblig2;
 
+import Oblig2.Liste;
+
 import javax.swing.*;
 import java.util.Comparator;
 import java.util.ConcurrentModificationException;
@@ -183,11 +185,11 @@ public class DobbeltLenketListe<T> implements Liste<T>
             Node<T> høyre = hale;
             Node<T> venstre = hode;
 
-            for (int j = antall; j > indeks + 1; j--) {
+            for (int i = antall; i > indeks + 1; i--) {
                 høyre = høyre.forrige;
             }
 
-            for (int i = 1; i < indeks; i++) {
+            for (int j = 1; j < indeks; j++) {
                 venstre = venstre.neste;
             }
             venstre.neste = høyre.forrige = new Node<>(verdi, venstre, høyre);
@@ -253,12 +255,62 @@ public class DobbeltLenketListe<T> implements Liste<T>
     }
 
 
-    
+
 // Oppgave 5
     @Override
     public boolean fjern(T verdi)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+      if (verdi == null) {
+          return false;
+      }
+      Node<T> temp = hode;
+      for (int i = 0; i < antall; i++) {
+          if (temp.verdi.equals(verdi)) {
+              if (temp.equals(hode)) {
+                  if (hode == hale) {
+                      hale = null;
+                  }
+                  else {
+                      hode.neste.forrige = null;
+                  }
+                  hode = hode.neste;
+                  temp.neste = null;
+                  endringer++;
+                  antall--;
+                  return true;
+              }
+              if (temp.equals(hale)) {
+                  temp = hale;
+                  if (hale == hode) {
+                      hode = null;
+                  }
+                  else {
+                      hale.forrige.neste = null;
+                  }
+                  hale = hale.forrige;
+                  temp.forrige = null;
+                  endringer++;
+                  antall--;
+                  return true;
+              }
+              else {
+                  Node<T> høyrePeker;
+                  temp = temp.forrige;
+                  høyrePeker = temp.neste.neste;
+                  høyrePeker.forrige.neste = null;
+                  temp.neste = høyrePeker;
+                  høyrePeker.forrige = temp;
+                  endringer++;
+                  antall++;
+                  return true;
+              }
+
+          }
+          else {
+              temp = temp.neste;
+          }
+      }
+      return false;
     }
 
 
@@ -266,7 +318,72 @@ public class DobbeltLenketListe<T> implements Liste<T>
     @Override
     public T fjern(int indeks)
     {
-        throw new UnsupportedOperationException("Ikke laget ennå!");
+        T verdi;
+        Node<T> temp = null;
+
+        if (indeks >= antall){
+            throw new IndexOutOfBoundsException("Indeksen er for høy!");
+        }
+        if (indeks < 0) {
+            throw new  IndexOutOfBoundsException("Indeksen er for lav!");
+        }
+        
+        if (indeks == 0) {
+            verdi = hode.verdi;
+            temp = hode;
+
+            if (hode == hale) {
+                hale = null;
+            } else {
+                hode.neste.forrige = null;
+            }
+            hode = hode.neste;
+            temp.neste = null;
+        }
+        else if (indeks == antall - 1) {
+            verdi = hale.verdi;
+            temp = hale;
+            if (hale == hode) {
+                hode = null;
+            }
+            else {
+                hale.forrige.neste = null;
+            }
+            hale = hale.forrige;
+            temp.forrige = null;
+        }
+        else {
+            if (indeks > antall/2) {
+                Node<T> høyrePeker;
+                temp = hale;
+                for(int i = antall - 1; i > indeks + 1; i --) {
+                    temp = temp.forrige;
+                }
+                verdi = temp.forrige.verdi;
+                høyrePeker = temp.forrige.forrige;
+                høyrePeker.neste.forrige = null;
+                temp.forrige = høyrePeker;
+                høyrePeker.neste = temp;
+            }
+            else {
+                Node<T> venstrePeker;
+                temp = hode;
+                for (int j = 1; j < indeks; j++) {
+                    temp = temp.neste;
+                }
+                verdi = temp.neste.verdi;
+                venstrePeker = temp.neste.neste;
+                venstrePeker.forrige.neste = null;
+                temp.neste.forrige = null;
+                temp.neste = venstrePeker;
+                venstrePeker.forrige = temp;
+            }
+        }
+        endringer++;
+        antall--;
+
+        return verdi;
+
     }
 
     @Override
@@ -369,5 +486,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
 
     } // DobbeltLenketListeIterator
 
-} // Oblig2.DobbeltLenketListe
+} // Oblig2test.DobbeltLenketListe
+
+
 
