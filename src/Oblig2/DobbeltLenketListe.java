@@ -442,7 +442,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
     {
         return new DobbeltLenketListeIterator();
     }
-
+//Oppgave 8
     public Iterator<T> iterator(int indeks)
     {
         indeksKontroll(indeks, false);
@@ -461,7 +461,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
             fjernOK = false;  // blir sann når next() kalles
             iteratorendringer = endringer;  // teller endringer
         }
-
+//Oppgave 8
         private DobbeltLenketListeIterator(int indeks)
         {
             indeksKontroll(indeks,false);
@@ -482,7 +482,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
             if (iteratorendringer != endringer) {
                 throw new ConcurrentModificationException();
             }
-            if (hasNext()) {
+            if (!hasNext()) {
                 throw new NoSuchElementException();
             }
             fjernOK = true;
