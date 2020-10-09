@@ -1,0 +1,14 @@
+Oppgave 1: Ok.
+
+Oppgave 2: ok.
+
+Oppgave 3: ok.
+
+Oppgave 4: ok.
+
+Oppgave 5: ok.
+
+Oppgave 6: ok.
+
+Oppgave 8: her skjer det en feil siden metoden nullstill() ikke er laget. 
+Det er del av oppgave 7, som jeg ikke skal gjøre siden jeg jobber alene.
