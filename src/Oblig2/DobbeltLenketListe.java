@@ -436,13 +436,13 @@ public class DobbeltLenketListe<T> implements Liste<T>
     {
         throw new UnsupportedOperationException("Ikke laget ennå!");
     }
-// oppgave 8
+// oppgave 8B
     @Override
     public Iterator<T> iterator()
     {
         return new DobbeltLenketListeIterator();
     }
-//Oppgave 8
+//Oppgave 8D
     public Iterator<T> iterator(int indeks)
     {
         indeksKontroll(indeks, false);
@@ -461,7 +461,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
             fjernOK = false;  // blir sann når next() kalles
             iteratorendringer = endringer;  // teller endringer
         }
-//Oppgave 8
+//Oppgave 8C
         private DobbeltLenketListeIterator(int indeks)
         {
             indeksKontroll(indeks,false);
@@ -475,7 +475,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
         {
             return denne != null;  // denne koden skal ikke endres!
         }
-// oppgave 8
+// oppgave 8A
         @Override
         public T next()
         {
