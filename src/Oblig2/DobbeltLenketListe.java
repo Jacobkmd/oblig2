@@ -471,11 +471,11 @@ public class DobbeltLenketListe<T> implements Liste<T>
         {
             return denne != null;  // denne koden skal ikke endres!
         }
-
+// oppgave 8
         @Override
         public T next()
         {
-            throw new UnsupportedOperationException("Ikke laget ennå!");
+
         }
 
         @Override
