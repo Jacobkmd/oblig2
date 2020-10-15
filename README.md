@@ -3,7 +3,7 @@ Oblig 2
 Jacob Midtvik Dietrichson.
 StudentNr: 346205.
 
-Forklaring til oppgaver:
+Forklaring til oppgavene:
 
 Tolker "maks 4 linjer pr oppgave" som maks 4 linjer pr deloppgave
 
