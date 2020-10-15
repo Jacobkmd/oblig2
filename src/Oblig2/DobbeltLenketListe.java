@@ -230,7 +230,7 @@ public class DobbeltLenketListe<T> implements Liste<T>
 
         for (int i = 0; i < antall; i++) {
             temp = hent(i);
-            if (temp == verdi){
+            if (temp.equals(verdi)){
                 return i;
             }
         }
